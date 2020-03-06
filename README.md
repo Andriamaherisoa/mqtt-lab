@@ -8,7 +8,7 @@
 
 |Nom|Prénom|login|email|
 |--|--|--|--|
-| ??? | ??? | ??? | ???@???.?? |
+| ANDRIAMAHERISOA | Nomenjanahary Mahandrisoa | an194860 | nomenjanahary.andriamaherisoa@etu.univ-lehavre.fr |
 
 ## Travail à réaliser
 
