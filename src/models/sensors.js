@@ -50,7 +50,27 @@ export function createSensor(attributes = {}) {
     }
   };
 
+  const countValue = value => {
+    return timeSeries.filter(t => t.type === value).length;
+  };
+
+  const timeSeriesMeanValue = () => {
+    if (type === "OPEN_CLOSE") {
+      return countValue("OPEN") > countValue("CLOSE") ? "OPEN" : "CLOSE";
+    } else {
+      return (
+        timeSeries.reduce((prev, curr) => {
+          return prev + Number(curr.value);
+        }, 0) / timeSeries.length
+      );
+    }
+  };
+
   const getTimeSeries = () => timeSeries;
+
+  const getTimeSerieAt = index => timeSeries[index];
+
+  const takeLatestTimeSerie = () => timeSeries[timeSeries.length - 1];
 
   if (attributes.hasOwnProperty("data")) {
     if (
@@ -106,6 +126,9 @@ export function createSensor(attributes = {}) {
     id,
     name,
     type,
+    getTimeSerieAt,
+    takeLatestTimeSerie,
+    timeSeriesMeanValue,
     getTimeSeries,
     addTimeSerie,
     removeTimeSerieAt,
