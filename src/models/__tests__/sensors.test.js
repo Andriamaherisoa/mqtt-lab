@@ -1,13 +1,10 @@
-import { version, createSensor, TimeSeries, loadSensors } from ".";
+import { createSensor, TimeSeries, loadSensors } from "../sensors";
 import { data, invalidData } from "../../mocks/sensor_data";
 
 describe("Sensor model tests", () => {
   describe("Dummy tests", () => {
     test("data is loaded with 3 elements", () => {
       expect(data.length).toBe(4);
-    });
-    test("version number from the model", () => {
-      expect(version()).toBe("1.0.0");
     });
   });
   /* TODO: Écrire ici la suite de tests pour le modèle objet.*/
